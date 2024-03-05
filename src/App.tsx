@@ -1,9 +1,9 @@
-import Router from './shared/Router';
+import Home from './components/Home';
 
 function App() {
 	return (
 		<>
-			<Router />
+			<Home />
 		</>
 	);
 }

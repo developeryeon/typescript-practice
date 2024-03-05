@@ -9,9 +9,7 @@ const queryClient = new QueryClient();
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
 	<QueryClientProvider client={queryClient}>
-		<BrowserRouter>
-			<App />
-			<GlobalStyle />
-		</BrowserRouter>
+		<GlobalStyle />
+		<App />
 	</QueryClientProvider>
 );

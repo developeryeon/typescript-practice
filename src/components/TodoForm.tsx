@@ -1,29 +1,16 @@
-import { useDispatch } from 'react-redux';
 import { useState } from 'react';
+import { useQueryClient } from 'react-query';
 
 export default function TodoForm() {
 	const [title, setTitle] = useState('');
 	const [content, setContent] = useState('');
-	const dispatch = useDispatch();
 
-	const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-		setTitle(e.target.value);
-	};
-
-	const handleContentChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-		setContent(e.target.value);
-	};
-
-	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-		e.preventDefault();
-		setTitle('');
-		setContent('');
-	};
+	const queryClient = useQueryClient();
 
 	return (
-		<form onSubmit={handleSubmit}>
-			<input type="text" value={title} onChange={handleTitleChange} placeholder="Enter title" />
-			<input type="text" value={content} onChange={handleContentChange} placeholder="Enter content" />
+		<form>
+			<input type="text" placeholder="제목을 입력해보세요" />
+			<input type="text" placeholder="오늘의 투두 내용을 입력해보세요" />
 			<button type="submit">Submit</button>
 		</form>
 	);
